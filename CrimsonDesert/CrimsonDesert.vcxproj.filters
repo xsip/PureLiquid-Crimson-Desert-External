@@ -33,6 +33,9 @@
     <ClInclude Include="Include\CrimsonDesert\Structures\DebugHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\CrimsonDesert\Structures\ServerTransformSyncActorComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CrimsonDesert\Include.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\CrimsonDesert\Structures\DebugHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CrimsonDesert\Structures\ServerTransformSyncActorComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

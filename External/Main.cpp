@@ -56,6 +56,8 @@ int main() {
     renderer.AddRenderObject(new RenderObjects::Position());
 #endif
 
+    // CrimsonDesert::ServerTransformSyncActorComponent::DisableFallDamage();
+    CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000;
     while (true) {
         if (GetAsyncKeyState(4) & 1) {
             auto vPos = CrimsonDesert::CPosition::GetInstance()->vLocalPos;

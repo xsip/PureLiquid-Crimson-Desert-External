@@ -3,3 +3,4 @@
 #include <CrimsonDesert/Structures/DebugHelper.h>
 #include <CrimsonDesert/Structures/WinAppLauncher.h>
 #include <CrimsonDesert/Structures/UIGamePlayControlCommonCurrencyIndicator.h>
+#include <CrimsonDesert/Structures/ServerTransformSyncActorComponent.h>

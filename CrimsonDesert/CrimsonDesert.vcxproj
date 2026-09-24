@@ -155,6 +155,7 @@
     <ClInclude Include="Include\CrimsonDesert\Structures\CPosition.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\DebugHelper.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\Include.h" />
+    <ClInclude Include="Include\CrimsonDesert\Structures\ServerTransformSyncActorComponent.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\UIGamePlayControlCommonCurrencyIndicator.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\WinAppLauncher.h" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <ClCompile Include="Source\CrimsonDesert\Include.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\CPosition.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\DebugHelper.cpp" />
+    <ClCompile Include="Source\CrimsonDesert\Structures\ServerTransformSyncActorComponent.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\UIGamePlayControlCommonCurrencyIndicator.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\WinAppLauncher.cpp" />
   </ItemGroup>
