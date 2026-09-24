@@ -6,3 +6,4 @@ packages
 **/*/x64
 *.pdb
 *.exe
+**/hooks.json

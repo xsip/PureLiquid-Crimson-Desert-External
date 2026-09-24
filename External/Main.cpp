@@ -49,15 +49,19 @@ int main() {
     pExeMod = pProc->GetRemoteModule("CrimsonDesert.exe");
     printf("pExeMod: 0x%p\n", pExeMod->GetAddr());
 
-
 #ifdef INCLUDE_OVERLAY
     OverlayAPI::InitImGuiContext();
     Overlay::Show(pProc->GetHwnd(), &renderer);
     renderer.AddRenderObject(new RenderObjects::Position());
 #endif
 
-    // CrimsonDesert::ServerTransformSyncActorComponent::DisableFallDamage();
-    CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000;
+    if (!CrimsonDesert::ServerTransformSyncActorComponent::HookUpdate()) {
+        printf("Error Hooking ServerTransformSyncActorComponent::Update!!\n");
+        return 1;
+    }
+    CrimsonDesert::ServerTransformSyncActorComponent::DisableFallDamage();
+
+    // CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000;
     while (true) {
         if (GetAsyncKeyState(4) & 1) {
             auto vPos = CrimsonDesert::CPosition::GetInstance()->vLocalPos;

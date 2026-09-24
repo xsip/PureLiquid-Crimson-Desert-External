@@ -1,6 +1,7 @@
 #include <RenderObjects/Position.h>
 #include <CrimsonDesert/Structures/CPosition.h>
 #include <CrimsonDesert/Structures/UIGamePlayControlCommonCurrencyIndicator.h>
+#include <CrimsonDesert/Structures/ServerTransformSyncActorComponent.h>
 #include <Overlay/RenderObject.h>
 #include <Math/Vector.h>
 #include <math/Matrix.h>
@@ -57,9 +58,9 @@ namespace RenderObjects {
 
 
         snprintf(bufCoins, sizeof(bufCoins),
-            "Coins: %i",
-            CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins);
-        ImGui::GetForegroundDrawList()->AddRectFilled(ImVec2(2, 20), ImVec2(250, 55), ImColor(0.0f, 0.0f, 0.0f, 0.5f),0.2f);
+            "Coins: %i\nFallDamage Status: %s",
+            CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins, CrimsonDesert::ServerTransformSyncActorComponent::IsFalldamageEnabled() ? "Enabled": "Disabled");
+        ImGui::GetForegroundDrawList()->AddRectFilled(ImVec2(2, 0), ImVec2(250, 65), ImColor(0.0f, 0.0f, 0.0f, 0.5f),0.2f);
         ImGui::GetForegroundDrawList()->AddText(
             ImVec2(5, 25),
             ImColor(255, 0, 255, 230),

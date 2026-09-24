@@ -20,26 +20,105 @@ CrimsonDesert.exe+21A01A5 - C6 00 01              - mov byte ptr [rax],01 { 1 } 
 
 
 namespace CrimsonDesert {
-	ServerTransformSyncActorComponent* ServerTransformSyncActorComponent::GetInstance() {
-		return nullptr;
-	}
-#define FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN ""
-	void ServerTransformSyncActorComponent::DisableFallDamage() {
+
+	static void* g_pOriginalUpdate = nullptr;
+	static ServerTransformSyncActorComponent::UpdateHookData* g_pUpdateHookData = nullptr;
+
+	LH_START(".hkUpdate")
+
+		__int64 __fastcall ServerTransformSyncActorComponent::hkUpdate(ServerTransformSyncActorComponent::ServerTransformSyncActorComponentInst* a1, __int64 *a2)
+	{
+
+		volatile ServerTransformSyncActorComponent::UpdateHookData* data = g_pUpdateHookData;
+
+		typedef __int64(__fastcall* UpdateFn)(ServerTransformSyncActorComponent::ServerTransformSyncActorComponentInst* a1, __int64* a2);
 		
+		volatile UpdateFn original = (UpdateFn)g_pOriginalUpdate;
+		volatile __int64 res = original(a1, a2);
+		
+		if (!data->bFallDamageEnabled && a1->pIsFallingFlagContainer->bIsFalling)
+			a1->pIsFallingFlagContainer->bIsFalling = data->bFallDamageEnabled;
+		
+		return res;
+
+	}
+
+	void ServerTransformSyncActorComponent::hkUpdateEnd() {}
+
+	LH_END()
+
+	ServerTransformSyncActorComponent* ServerTransformSyncActorComponent::GetInstance() {
+		
+		if (!m_Hook.IsHooked()) {
+			printf("Cant retrieve ServerTransformActorComponent Pointer! ( ::Update not hooked. )\n");
+			return nullptr;
+		}
+
+		if (!pInstAddr) {
+			pInstAddr = m_Hook.ReadData<UpdateHookData>().pInst;
+		}
+
+		return pInstAddr;
+
+	}
+
+
+	bool ServerTransformSyncActorComponent::HookUpdate() {
+#define UPDATE_ACTOR_FN_PATTERN "48 8B C4 48 89 58 ?? 55 56 57 41 54 41 55 41 56 41 57 48 8D 68 ?? 48 81 EC ?? ?? ?? ?? C5 F8 29 70 ?? C5 F8 29 78 ?? C5 78 29 40 ?? 4C 8B EA 4C 8B F9 4C 8B 49"
+
+		UpdateHookData initData{};
+		initData.pInst = nullptr;
+		initData.bFallDamageEnabled = true;
+
+		return m_Hook.Hook<UpdateHookData>(
+			UPDATE_ACTOR_FN_PATTERN,
+			"CrimsonDesert.exe",
+			initData,
+			reinterpret_cast<void*>(hkUpdate),
+			reinterpret_cast<void*>(hkUpdateEnd),
+			{
+				LiquidHookEx::Detour::RipSlot::Data(&g_pUpdateHookData),
+				LiquidHookEx::Detour::RipSlot::Orig(&g_pOriginalUpdate),
+			},
+			17
+			);
+	}
+
+// #define FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN "C6 00 ?? 4C 8B 65"
+
+	void ServerTransformSyncActorComponent::SetFallDamageEnabled(bool bEnabled) {
+		if (!m_Hook.IsHooked()) {
+			return;
+		}
+
+		m_Hook.WriteField<bool>(offsetof(ServerTransformSyncActorComponent::UpdateHookData, bFallDamageEnabled), bEnabled);
+		printf("Setting falldamage: %i\n", bEnabled);
+		/*
 		auto addr = reinterpret_cast<uintptr_t>(pExeMod->ScanMemory(FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN));
 		if (!addr) {
 			printf("Error locating FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN!\n");
 			return;
 		}
-		
-		bool bFallDamageEnabled = pProc->ReadDirect<bool>(addr + 0x2);
-		if (bFallDamageEnabled) {
-			printf("Fall damage enabled. Patching now..!\n");
-			pProc->Write<bool>(addr + 0x2, false);
+
+		if (!pProc->Write<BYTE>(addr + 2, bEnabled ? 0x01 : 0x00)) {
+			printf("Error writing falldamage enabled!!\n 0x%d\n", GetLastError());
 			return;
 		}
+		bool bFallDamageEnabled = pProc->ReadDirect<bool>(addr + 2);
+		printf("bFallDamageEnabled State: %i\n", bFallDamageEnabled);
+		*/
+	}
 
-		printf("Fall damage already disabled.\n");
-	
+	void ServerTransformSyncActorComponent::DisableFallDamage() {
+		SetFallDamageEnabled(false);
+	}
+	void ServerTransformSyncActorComponent::EnableFallDamage() {
+		SetFallDamageEnabled(true);
+	}
+	bool ServerTransformSyncActorComponent::IsFalldamageEnabled() {
+		if (!m_Hook.IsHooked()) {
+			return true;
+		}
+		return m_Hook.ReadData<UpdateHookData>().bFallDamageEnabled;
 	}
 }
