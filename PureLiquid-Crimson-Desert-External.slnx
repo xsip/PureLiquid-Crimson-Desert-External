@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CrimsonDesert/CrimsonDesert.vcxproj" />
+  <Project Path="External/External.vcxproj" />
+  <Project Path="GlobalData/GlobalData.vcxproj" />
+  <Project Path="LiquidHookEx/LiquidHookEx/LiquidHookEx.vcxproj" />
+  <Project Path="Math/Math.vcxproj" />
+  <Project Path="Overlay/Overlay.vcxproj" />
+  <Project Path="RenderObjects/RenderObjects.vcxproj" />
+</Solution>

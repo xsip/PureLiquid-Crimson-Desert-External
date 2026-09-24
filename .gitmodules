@@ -1,0 +1,6 @@
+[submodule "LiquidHookEx"]
+	path = LiquidHookEx
+	url = git@github.com:xsip/LiquidHookEx.git
+[submodule "Overlay/Libraries/imgui"]
+	path = Overlay/Libraries/imgui
+	url = git@github.com:ocornut/imgui.git
