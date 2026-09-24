@@ -45,6 +45,7 @@ namespace CrimsonDesert {
 		static void EnableFallDamage();
 		static bool IsFalldamageEnabled();
 		static bool HookUpdate();
+		static bool Unhook();
 		static ServerTransformSyncActorComponent* GetInstance();
 	};
 }

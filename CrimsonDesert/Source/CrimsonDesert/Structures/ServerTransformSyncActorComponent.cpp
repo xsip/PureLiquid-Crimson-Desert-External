@@ -39,6 +39,8 @@ namespace CrimsonDesert {
 		if (!data->bFallDamageEnabled && a1->pIsFallingFlagContainer->bIsFalling)
 			a1->pIsFallingFlagContainer->bIsFalling = data->bFallDamageEnabled;
 		
+		data->pInst = reinterpret_cast<CrimsonDesert::ServerTransformSyncActorComponent*>(a1);
+
 		return res;
 
 	}
@@ -62,6 +64,10 @@ namespace CrimsonDesert {
 
 	}
 
+
+	bool ServerTransformSyncActorComponent::Unhook() {
+		return m_Hook.Unhook();
+	}
 
 	bool ServerTransformSyncActorComponent::HookUpdate() {
 #define UPDATE_ACTOR_FN_PATTERN "48 8B C4 48 89 58 ?? 55 56 57 41 54 41 55 41 56 41 57 48 8D 68 ?? 48 81 EC ?? ?? ?? ?? C5 F8 29 70 ?? C5 F8 29 78 ?? C5 78 29 40 ?? 4C 8B EA 4C 8B F9 4C 8B 49"

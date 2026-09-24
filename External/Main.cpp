@@ -62,12 +62,24 @@ int main() {
     CrimsonDesert::ServerTransformSyncActorComponent::DisableFallDamage();
 
     // CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000;
-    while (true) {
+    while (!GetAsyncKeyState(VK_DELETE) & 1) {
         if (GetAsyncKeyState(4) & 1) {
+
+            printf("ServerTransformSyncActorComponent*: 0x%p\n", CrimsonDesert::ServerTransformSyncActorComponent::GetInstance());
+            printf("UIGamePlayControlCommonCurrencyIndicator*: 0x%p\n", CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance());
             auto vPos = CrimsonDesert::CPosition::GetInstance()->vLocalPos;
             vPos.y += 15.0f;
             CrimsonDesert::CPosition::GetInstance()->vLocalPos = vPos;
             Sleep(1000);
         }
     }
+
+    CrimsonDesert::ServerTransformSyncActorComponent::EnableFallDamage();
+    Sleep(100);
+    if (!CrimsonDesert::ServerTransformSyncActorComponent::Unhook()) {
+        printf("Error Un-Hooking ServerTransformSyncActorComponent::Update!!\n");
+    }
+
+    return 1;
+
 }
