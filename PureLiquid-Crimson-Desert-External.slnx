@@ -3,11 +3,11 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CrimsonDesert/CrimsonDesert.vcxproj" />
-  <Project Path="External/External.vcxproj" />
-  <Project Path="GlobalData/GlobalData.vcxproj" />
-  <Project Path="LiquidHookEx/LiquidHookEx/LiquidHookEx.vcxproj" />
-  <Project Path="Math/Math.vcxproj" />
-  <Project Path="Overlay/Overlay.vcxproj" />
-  <Project Path="RenderObjects/RenderObjects.vcxproj" />
+  <Project Path="CrimsonDesert/CrimsonDesert.vcxproj" Id="14450429-8185-4421-92e3-ffef30542697" />
+  <Project Path="External/External.vcxproj" Id="94ace9ed-613b-42e3-9ee4-cae7c4d18728" />
+  <Project Path="GlobalData/GlobalData.vcxproj" Id="67c0b8c6-8308-41d3-9540-2d33fc61bc34" />
+  <Project Path="LiquidHookEx/LiquidHookEx/LiquidHookEx.vcxproj" Id="00b59da1-017f-445c-ac10-87928d2e1d87" />
+  <Project Path="Math/Math.vcxproj" Id="94096955-e595-4626-a42a-48722d7983cd" />
+  <Project Path="Overlay/Overlay.vcxproj" Id="68dfd4e9-e27c-489f-a6a9-fc7f1519c65f" />
+  <Project Path="RenderObjects/RenderObjects.vcxproj" Id="4b16b8ec-88eb-4d78-ad34-d50e6b829571" />
 </Solution>

@@ -92,21 +92,6 @@ namespace CrimsonDesert {
 		}
 
 		m_Hook.WriteField<bool>(offsetof(ServerTransformSyncActorComponent::UpdateHookData, bFallDamageEnabled), bEnabled);
-		printf("Setting falldamage: %i\n", bEnabled);
-		/*
-		auto addr = reinterpret_cast<uintptr_t>(pExeMod->ScanMemory(FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN));
-		if (!addr) {
-			printf("Error locating FALL_DAMAGE_ENABLED_INSTRUCTION_PATTERN!\n");
-			return;
-		}
-
-		if (!pProc->Write<BYTE>(addr + 2, bEnabled ? 0x01 : 0x00)) {
-			printf("Error writing falldamage enabled!!\n 0x%d\n", GetLastError());
-			return;
-		}
-		bool bFallDamageEnabled = pProc->ReadDirect<bool>(addr + 2);
-		printf("bFallDamageEnabled State: %i\n", bFallDamageEnabled);
-		*/
 	}
 
 	void ServerTransformSyncActorComponent::DisableFallDamage() {
