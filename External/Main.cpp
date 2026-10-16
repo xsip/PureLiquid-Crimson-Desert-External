@@ -49,6 +49,8 @@ int main() {
     pExeMod = pProc->GetRemoteModule("CrimsonDesert.exe");
     printf("pExeMod: 0x%p\n", pExeMod->GetAddr());
 
+
+
 #ifdef INCLUDE_OVERLAY
     OverlayAPI::InitImGuiContext();
     Overlay::Show(pProc->GetHwnd(), &renderer);
@@ -61,16 +63,18 @@ int main() {
     }
     CrimsonDesert::ServerTransformSyncActorComponent::DisableFallDamage();
 
-    // CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000;
+    // CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins = 999000; // Give 1 coin to a beggar or trade to update coins
     while (!GetAsyncKeyState(VK_DELETE) & 1) {
-        if (GetAsyncKeyState(4) & 1) {
+        if (GetAsyncKeyState(4)) {
+            //printf("UIGamePlayControlCommonCurrencyIndicator*: 0x%p + 0xD8\n", CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance());
 
+            /*pProc->DumpVTable(0x3A53BE0A460, 5, "RotateCamera");
             printf("ServerTransformSyncActorComponent*: 0x%p\n", CrimsonDesert::ServerTransformSyncActorComponent::GetInstance());
-            printf("UIGamePlayControlCommonCurrencyIndicator*: 0x%p\n", CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance());
+            */
             auto vPos = CrimsonDesert::CPosition::GetInstance()->vLocalPos;
             vPos.y += 15.0f;
             CrimsonDesert::CPosition::GetInstance()->vLocalPos = vPos;
-            Sleep(1000);
+            Sleep(10);
         }
     }
 

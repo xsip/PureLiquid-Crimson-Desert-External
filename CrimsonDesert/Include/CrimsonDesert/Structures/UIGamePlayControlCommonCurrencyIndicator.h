@@ -6,7 +6,8 @@
 #include <cstddef>
 
 using namespace Globals;
-
+// requires trade ( give goin for example ) to update coins
+// combine with UIGamePlayControlCommonCoinage to set directly.
 namespace CrimsonDesert {
 	class UIGamePlayControlCommonCurrencyIndicator {
 	private:
