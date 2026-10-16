@@ -17,6 +17,7 @@
 ## Dependencies
 
 - [LiquidHookEx](https://github.com/xsip/LiquidHookEx) — external hooking library, pulled in as a git submodule.
+- [ImGui](https://github.com/ocornut/imgui) — Rendering library, pulled in as a git submodule.
 - Windows, MSVC (v145 toolset), C++20.
 
 ## Building
