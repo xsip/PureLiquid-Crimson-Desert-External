@@ -34,7 +34,7 @@ namespace CrimsonDesert {
 
 		class CUnknownContainer {
 		public:
-			PROPERTY(pUnknown1, CUnknownData_1*, 0x4D8);
+			PROPERTY(pUnknown1, CUnknownData_1*, 0x4E8);
 		};
 
 		inline static UIGamePlayControlCommonCurrencyIndicator *pInstAddr = 0x0;

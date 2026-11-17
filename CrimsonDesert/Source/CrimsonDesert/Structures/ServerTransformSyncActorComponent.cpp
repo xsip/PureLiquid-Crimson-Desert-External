@@ -70,7 +70,9 @@ namespace CrimsonDesert {
 	}
 
 	bool ServerTransformSyncActorComponent::HookUpdate() {
-#define UPDATE_ACTOR_FN_PATTERN "48 8B C4 48 89 58 ?? 55 56 57 41 54 41 55 41 56 41 57 48 8D 68 ?? 48 81 EC ?? ?? ?? ?? C5 F8 29 70 ?? C5 F8 29 78 ?? C5 78 29 40 ?? 4C 8B EA 4C 8B F9 4C 8B 49"
+		// callsite pattern E9 ? ? ? ? C3 CC CC 48 89 5C 24 ? 57 48 83 EC ? 48 8B 41
+		// callsite pattern1 
+#define UPDATE_ACTOR_FN_PATTERN "48 8B C4 48 89 58 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 68 ? 48 81 EC ? ? ? ? C5 F8 29 70 ? C5 F8 29 78 ? C5 78 29 40 ? 4C 8B E2 4C 8B F1"
 
 		UpdateHookData initData{};
 		initData.pInst = nullptr;
