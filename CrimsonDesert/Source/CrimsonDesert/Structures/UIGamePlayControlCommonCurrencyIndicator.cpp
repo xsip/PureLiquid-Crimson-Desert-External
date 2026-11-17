@@ -21,7 +21,7 @@ namespace CrimsonDesert {
 				printf("Error finding  \"UIGamePlayControlCommonCurrencyIndicator\"-Addr\n");
 				return nullptr;
 			}
-			printf("pInst: 0x%p\n", pInst);
+
 			auto c = pProc->ReadDirect<CUnknownContainer*>(pInst);
 			if (!c)
 				return nullptr;

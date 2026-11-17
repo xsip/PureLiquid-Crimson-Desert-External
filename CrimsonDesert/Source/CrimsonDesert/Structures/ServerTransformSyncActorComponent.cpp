@@ -78,6 +78,8 @@ namespace CrimsonDesert {
 		initData.pInst = nullptr;
 		initData.bFallDamageEnabled = true;
 
+		auto stolenBytesInfo = LiquidHookEx::GetStolenBytesForDetour(reinterpret_cast<uintptr_t>(pExeMod->ScanMemory(UPDATE_ACTOR_FN_PATTERN)), "CrimsonDesert.exe");
+		
 		return m_Hook.Hook<UpdateHookData>(
 			UPDATE_ACTOR_FN_PATTERN,
 			"CrimsonDesert.exe",
@@ -88,7 +90,7 @@ namespace CrimsonDesert {
 				LiquidHookEx::Detour::RipSlot::Data(&g_pUpdateHookData),
 				LiquidHookEx::Detour::RipSlot::Orig(&g_pOriginalUpdate),
 			},
-			17
+			stolenBytesInfo.totalLength
 			);
 	}
 
