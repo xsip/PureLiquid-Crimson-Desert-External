@@ -4,3 +4,6 @@
 #include <CrimsonDesert/Structures/WinAppLauncher.h>
 #include <CrimsonDesert/Structures/UIGamePlayControlCommonCurrencyIndicator.h>
 #include <CrimsonDesert/Structures/ServerTransformSyncActorComponent.h>
+#include <CrimsonDesert/Structures/GlobalContext.h>
+#include <CrimsonDesert/Structures/NpcInfoManager.h>
+#include <CrimsonDesert/Structures/ManagerLoopDumper.h>

@@ -21,12 +21,18 @@
     <ClInclude Include="Include\RenderObjects\Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\RenderObjects\MapHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\RenderObjects\Include.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\RenderObjects\Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\RenderObjects\MapHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

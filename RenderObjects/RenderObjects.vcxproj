@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\RenderObjects\Include.h" />
+    <ClInclude Include="Include\RenderObjects\MapHelper.h" />
     <ClInclude Include="Include\RenderObjects\Position.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\RenderObjects\Include.cpp" />
+    <ClCompile Include="Source\RenderObjects\MapHelper.cpp" />
     <ClCompile Include="Source\RenderObjects\Position.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,18 @@
     <ClInclude Include="Include\CrimsonDesert\Helpers\VTableDumper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\CrimsonDesert\Structures\GlobalContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CrimsonDesert\Structures\NpcInfoManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CrimsonDesert\Structures\ManagerLoopDumper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CrimsonDesert\Structures\BaseManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CrimsonDesert\Include.cpp">
@@ -63,6 +75,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\CrimsonDesert\Structures\UIGamePlayControlCommonCoinage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CrimsonDesert\Structures\GlobalContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CrimsonDesert\Structures\NpcInfoManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CrimsonDesert\Structures\ManagerLoopDumper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CrimsonDesert\Structures\BaseManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

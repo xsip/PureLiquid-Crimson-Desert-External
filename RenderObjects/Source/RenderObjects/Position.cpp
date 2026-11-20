@@ -60,7 +60,7 @@ namespace RenderObjects {
         snprintf(bufCoins, sizeof(bufCoins),
             "Coins: %i\nFallDamage Status: %s",
             CrimsonDesert::UIGamePlayControlCommonCurrencyIndicator::GetInstance()->m_iCoins, CrimsonDesert::ServerTransformSyncActorComponent::IsFalldamageEnabled() ? "Enabled": "Disabled");
-        ImGui::GetForegroundDrawList()->AddRectFilled(ImVec2(2, 0), ImVec2(250, 65), ImColor(0.0f, 0.0f, 0.0f, 0.5f),0.2f);
+        ImGui::GetForegroundDrawList()->AddRectFilled(ImVec2(2, 0), ImVec2(250, 95), ImColor(0.0f, 0.0f, 0.0f, 0.5f),0.2f);
         ImGui::GetForegroundDrawList()->AddText(
             ImVec2(5, 25),
             ImColor(255, 0, 255, 230),

@@ -39,6 +39,19 @@ public: \
     } \
     __declspec(property(get = _internal_Get##NAME, put = _internal_Set##NAME)) std::vector<TYPE> NAME;
 
+
+#define PROPERTY_ARRAY_RUNTIME(NAME, TYPE, COUNT_FUNC, OFFSET) \
+public: \
+    __forceinline std::vector<TYPE> _internal_Get##NAME() { \
+        return ::Globals::pProc->ReadArray<TYPE>(thisptr + OFFSET, COUNT_FUNC()); \
+    } \
+    __forceinline void _internal_Set##NAME(const std::vector<TYPE>& val) { \
+        if (val.size() >= COUNT_FUNC()) \
+            ::Globals::pProc->WriteArray<TYPE>(thisptr + OFFSET, val); \
+    } \
+    __declspec(property(get = _internal_Get##NAME, put = _internal_Set##NAME)) std::vector<TYPE> NAME;
+
+
 #define RUNTIME_OFFSET_PROPERTY(NAME, TYPE, OFFSET_FUNC) \
 public: \
     TYPE _internal_Get##NAME() const { \

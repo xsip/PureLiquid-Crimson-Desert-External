@@ -118,7 +118,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GENERATED_MANAGERS_DIR=R"($(SolutionDir)CrimsonDesert\Include\CrimsonDesert\Managers\)";SOLUTION_DIR=R"($(SolutionDir))"</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
@@ -137,7 +137,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GENERATED_MANAGERS_DIR=R"($(SolutionDir)CrimsonDesert\Include\CrimsonDesert\Managers\)";SOLUTION_DIR=R"($(SolutionDir))"</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
@@ -153,9 +153,13 @@
   <ItemGroup>
     <ClInclude Include="Include\CrimsonDesert\Helpers\VTableDumper.h" />
     <ClInclude Include="Include\CrimsonDesert\Include.h" />
+    <ClInclude Include="Include\CrimsonDesert\Structures\BaseManager.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\CPosition.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\DebugHelper.h" />
+    <ClInclude Include="Include\CrimsonDesert\Structures\GlobalContext.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\Include.h" />
+    <ClInclude Include="Include\CrimsonDesert\Structures\ManagerLoopDumper.h" />
+    <ClInclude Include="Include\CrimsonDesert\Structures\NpcInfoManager.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\ServerTransformSyncActorComponent.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\UIGamePlayControlCommonCoinage.h" />
     <ClInclude Include="Include\CrimsonDesert\Structures\UIGamePlayControlCommonCurrencyIndicator.h" />
@@ -163,8 +167,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CrimsonDesert\Include.cpp" />
+    <ClCompile Include="Source\CrimsonDesert\Structures\BaseManager.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\CPosition.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\DebugHelper.cpp" />
+    <ClCompile Include="Source\CrimsonDesert\Structures\GlobalContext.cpp" />
+    <ClCompile Include="Source\CrimsonDesert\Structures\ManagerLoopDumper.cpp" />
+    <ClCompile Include="Source\CrimsonDesert\Structures\NpcInfoManager.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\ServerTransformSyncActorComponent.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\UIGamePlayControlCommonCoinage.cpp" />
     <ClCompile Include="Source\CrimsonDesert\Structures\UIGamePlayControlCommonCurrencyIndicator.cpp" />

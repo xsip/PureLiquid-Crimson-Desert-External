@@ -1,0 +1,18 @@
+#pragma once
+#include <GlobalData/Include.h>
+#include <CrimsonDesert/Structures/BaseManager.h>
+#include <Math/Vector.h>
+
+#include <cstdint>
+#include <cstddef>
+
+using namespace Globals;
+
+namespace CrimsonDesert {
+	class HousingObjectGroupInfoManager : public BaseManager {
+	public:
+		inline static HousingObjectGroupInfoManager* GetInstance() {
+			return BaseManager::GetInstanceFor<HousingObjectGroupInfoManager>();
+		}
+	};
+}

@@ -8,4 +8,5 @@
 #include <Overlay/Overlay.h>
 #include <Overlay/Renderer.h>
 #include <RenderObjects/Position.h>
+#include <RenderObjects/MapHelper.h>
 #endif
