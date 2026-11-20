@@ -57,7 +57,7 @@ CrimsonDesert::ManagerLoopDumper::Generate(); // defaults to runtime offset look
 
 The files are written to `GENERATED_MANAGERS_DIR`. Ensure that directory exists and is writable before generating. The scan depends on the manager-loop byte pattern and the executable's MSVC RTTI layout, so findings depend on a compatible game build and available RTTI.
 
-## World map helper
+## World map helper [Preview On YouTube](https://www.youtube.com/watch?v=XkqR7Fd9TyI)
 
 `UIGamePlayControlRootWorldMap`, available through `GlobalContext::GetUIGamePlayControlRootWorldMap()`, exposes the currently hovered world-map marker. It reports whether a map item is hovered and provides the hovered icon container. The icon can supply its name and world position, which makes it useful for identifying points of interest and acting on their coordinates.
 
