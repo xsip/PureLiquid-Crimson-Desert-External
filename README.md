@@ -56,3 +56,17 @@ CrimsonDesert::ManagerLoopDumper::Generate(); // defaults to runtime offset look
 ```
 
 The files are written to `GENERATED_MANAGERS_DIR`. Ensure that directory exists and is writable before generating. The scan depends on the manager-loop byte pattern and the executable's MSVC RTTI layout, so findings depend on a compatible game build and available RTTI.
+
+## World map helper
+
+`UIGamePlayControlRootWorldMap`, available through `GlobalContext::GetUIGamePlayControlRootWorldMap()`, exposes the currently hovered world-map marker. It reports whether a map item is hovered and provides the hovered icon container. The icon can supply its name and world position, which makes it useful for identifying points of interest and acting on their coordinates.
+
+`RenderObjects::MapHelper` demonstrates this in the overlay. While the cursor is over a marker, it displays the marker name and coordinates beside the cursor. A left-button double-click writes that marker position to `CPosition::GetInstance()->vLocalPos`, teleporting the player to it. `GetWorldPosition()` applies the project's existing coordinate adjustment by default; pass `true` to get the unadjusted position.
+
+To use the helper, add it to the renderer (the example registration is in `External/Main.cpp`):
+
+```cpp
+renderer.AddRenderObject(new RenderObjects::MapHelper());
+```
+
+This requires the overlay renderer to be enabled and the game world map to be open with a marker under the cursor. The helper reads the current hovered marker, so it does not enumerate or display every map marker at once.
